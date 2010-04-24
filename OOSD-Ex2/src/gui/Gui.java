@@ -12,6 +12,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -30,7 +32,7 @@ public class Gui extends JPanel {
 
 		super(new GridBagLayout());
 
-		super.setBackground(Color.decode("77777777"));
+		setBackground(Color.decode("77777777"));
 
 		GridBagConstraints tProto = new GridBagConstraints();
 		tProto.insets = new Insets(5,2,5,2);
@@ -61,7 +63,7 @@ public class Gui extends JPanel {
 		tConst.gridx = 1; tConst.gridy = 0;
 		tConst.gridwidth = 3;
 
-	    Panel buttonGroup = new Panel();
+	    final Panel buttonGroup = new Panel();
 
 	    buttonGroup.add( new JButton("Button1") );
 	    buttonGroup.add( new JButton("Button2") );
@@ -108,7 +110,6 @@ public class Gui extends JPanel {
 		add(new JButton("Add"), tConst);
 
 
-
 		GridBagConstraints tListConst = (GridBagConstraints)tProto.clone();
 		tListConst.anchor = CENTER;
 		tListConst.weightx = 1.0;
@@ -126,13 +127,6 @@ public class Gui extends JPanel {
 	    add(list, tConst);
 	    
 	    
-		// (0-1,10) "Remove" button
-		tConst = (GridBagConstraints)tButtonConst.clone();
-		tConst.gridx = 0; tConst.gridy = 11;
-		tConst.gridwidth = 2; tConst.gridheight = 1;
-		add(new JButton("Remove Feed"), tConst);
-
-
 		// (2,3-6) List of titles
 		tConst = (GridBagConstraints)tListConst.clone();
 		tConst.fill = BOTH;
@@ -145,8 +139,8 @@ public class Gui extends JPanel {
 
 
 		// (2,7-10)Text Area
-	    JTextArea textArea = new JTextArea(15, 30);
-
+	    final JTextArea textArea = new JTextArea(15, 30);
+	    
 		textArea.setBorder(BorderFactory.createEtchedBorder());
 
 		tConst = new GridBagConstraints();
@@ -158,5 +152,26 @@ public class Gui extends JPanel {
 		tConst.gridwidth = 5; tConst.gridheight = 4;
 
 		add(textArea, tConst);
+		
+		
+		// (0-1,10) "Remove" button
+		tConst = (GridBagConstraints)tButtonConst.clone();
+		tConst.gridx = 0; tConst.gridy = 11;
+		tConst.gridwidth = 2; tConst.gridheight = 1;
+		
+		JButton removeButton = new JButton("Remove Feed");
+		
+		removeButton.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Color newColor = Color.decode( String.valueOf( (int)(Math.random()*10000000) ) );
+				setBackground(newColor);
+				buttonGroup.setBackground(newColor);
+				textArea.setText(newColor.toString());
+			}
+		});
+		
+		add(removeButton, tConst);
 	}
 }
