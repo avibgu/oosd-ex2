@@ -32,7 +32,7 @@ public class Gui extends JPanel {
 
 		super(new GridBagLayout());
 
-		setBackground(Color.decode("77777777"));
+		setBackground(Color.decode("5462640"));
 
 		GridBagConstraints tProto = new GridBagConstraints();
 		tProto.insets = new Insets(5,2,5,2);
@@ -78,6 +78,7 @@ public class Gui extends JPanel {
 		tConst.gridx = 0; tConst.gridy = 1;
 		JLabel text = new JLabel("Add New Feed:\t");
 		text.setFont(new Font("Time New Roman",Font.BOLD,16));
+		text.setForeground(Color.WHITE);
 		add(text, tConst);
 
 		// (1,1) "URL"
@@ -85,6 +86,7 @@ public class Gui extends JPanel {
 		tConst.gridx = 1; tConst.gridy = 1;
 		text = new JLabel("URL");
 		text.setFont(new Font("Time New Roman",Font.ITALIC,14));
+		text.setForeground(Color.WHITE);
 		add(text, tConst);
 
 		// (2,1) [textField]
@@ -97,6 +99,7 @@ public class Gui extends JPanel {
 		tConst.gridx = 3; tConst.gridy = 1;
 		text = new JLabel("Refresh Rate");
 		text.setFont(new Font("Time New Roman",Font.ITALIC,14));
+		text.setForeground(Color.WHITE);
 		add(text, tConst);
 
 		// (4,1) [textField]
