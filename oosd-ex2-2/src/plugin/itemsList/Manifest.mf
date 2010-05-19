@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Reader-Plugin-Class: plugin.items.ItemsListPlugin
+Reader-Plugin-MakeMethod: make
+Reader-Plugin-ListenerMethod: setListener
+Reader-Plugin-FeedMethod: setFeed
+Reader-Plugin-ClearMethod: clearSelection
+Reader-Plugin-GetMethod: getSelectedValue
+Reader-Plugin-view: Items
