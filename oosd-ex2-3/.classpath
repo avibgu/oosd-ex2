@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/forms.jar" sourcepath="lib/forms-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/D:/Downloads/University/eclipse/workspace/oosd-ex2/lib/forms-javadoc.zip!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target"/>
+</classpath>

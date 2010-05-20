@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Reader-Plugin-Class: plugin.itemsTable.ItemsTablePlugin
+Reader-Plugin-Method: make
+Reader-Plugin-view: ItemsTable
