@@ -15,7 +15,8 @@ public class ItemsListPlugin {
 	public Component make() {
 
 		JList tList = new JList();
-
+		
+		tList.setModel( new ItemsListPluginModel() );
 		tList.setCellRenderer( new ItemsListPluginCellRenderer() );
 		
 		return tList;

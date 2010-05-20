@@ -15,8 +15,6 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,7 +66,7 @@ public class Gui extends JPanel
 
 	private Map<String, PluginWrapper> _pluginsMap;
 	
-	public JScrollPane _titlePane;
+	private JScrollPane _titlePane;
 
 	private PluginWrapper _wrap;
 	
@@ -105,7 +103,7 @@ public class Gui extends JPanel
 	    	tItems = (JComponent)getWrapper().getComponent();
 	    	getWrapper().setListener( tItems, this );
 
-		} catch (Exception e) { e.printStackTrace(); }
+		} catch (Exception e) {}
         
 		setItems( tItems );
 
@@ -268,17 +266,10 @@ public class Gui extends JPanel
 					((FeedsTreeModel)getTree().getModel()).remove(_selectedNode);
 					
 					try {
+						
 						getWrapper().setFeed( getItems(), _emptyFeed );
-					} catch (IllegalArgumentException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (IllegalAccessException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (InvocationTargetException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
 					}
+					catch (Exception e1) {}
 
 					getContent().setText("");
 				}
@@ -327,17 +318,10 @@ public class Gui extends JPanel
 		if (tNode.getUserObject() instanceof RSSFeed){
 
 			try {
+				
 				getWrapper().setFeed( getItems(), (RSSFeed)tNode.getUserObject() );
-			} catch (IllegalArgumentException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IllegalAccessException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (InvocationTargetException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			}
+			catch (Exception e1) {}
 
 			this._selectedNode = tNode;
 		}
@@ -348,34 +332,20 @@ public class Gui extends JPanel
 			if ( str.equals("Feeds") ){
 
 				try {
+					
 					getWrapper().setFeed( getItems(), _emptyFeed );
-				} catch (IllegalArgumentException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IllegalAccessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (InvocationTargetException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
 				}
+				catch (Exception e1) {}
 			}
 			else{
 
 				try {
+					
 					getWrapper().setFeed( getItems(),
 							(RSSFeed)((DefaultMutableTreeNode)
 									tNode.getParent()).getUserObject() );
-				} catch (IllegalArgumentException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IllegalAccessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (InvocationTargetException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				} 
+				catch (Exception e1) {}
 			}
 
 			this._selectedNode = null;
@@ -383,35 +353,23 @@ public class Gui extends JPanel
 
 		// clear item selection and content pane
 		try {
+			
 			getWrapper().clearSelection( getItems() );
-		} catch (IllegalArgumentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IllegalAccessException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (InvocationTargetException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		}
+		catch (Exception e1) {}
+		
 		getContent().setText("");
 	}
 
 	public void valueChanged(ListSelectionEvent e) {
 
 		Item tItem = null;
+		
 		try {
+			
 			tItem = (Item) getWrapper().getSelectedValue( getItems() );
-		} catch (IllegalArgumentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IllegalAccessException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (InvocationTargetException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		}
+		catch (Exception e1) {}
 
 		if (tItem == null) return;
 
@@ -437,4 +395,5 @@ public class Gui extends JPanel
 	public void setWrapper(PluginWrapper tWrap) { this._wrap = tWrap; }
 
 	public PluginWrapper getWrapper() { return _wrap; }
+
 }
