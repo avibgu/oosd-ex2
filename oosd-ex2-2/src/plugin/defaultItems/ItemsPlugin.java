@@ -18,7 +18,7 @@ public class ItemsPlugin {
 
 		tList.setCellRenderer( new ItemsListCellRenderer() );
 		tList.setSelectionMode( ListSelectionModel.SINGLE_SELECTION );
-
+		tList.setModel( new ItemsListModel() );
 		tList.setBorder( BorderFactory.createEtchedBorder() );
 		
 		return tList;
