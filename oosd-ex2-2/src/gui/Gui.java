@@ -68,7 +68,7 @@ public class Gui extends JPanel
 
 	private Map<String, PluginWrapper> _pluginsMap;
 	
-	private JScrollPane _titlePane;
+	public JScrollPane _titlePane;
 
 	private PluginWrapper _wrap;
 	

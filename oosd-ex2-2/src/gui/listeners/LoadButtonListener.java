@@ -54,6 +54,7 @@ public class LoadButtonListener implements ActionListener {
                 	tWrap.setListener( tItems, (ListSelectionListener)this._gui );
                 	this._gui.setItems( tItems );
                 	this._gui.setWrapper( tWrap );
+                	this._gui._titlePane.setViewportView( tItems );
                 }
             }
             catch (Exception e1) {
